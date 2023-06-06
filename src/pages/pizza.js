@@ -1,6 +1,8 @@
+// Importing the necessary dependencies
 import React, { useState } from 'react';
 
 const PizzaOrder = () => {
+  // State variables for managing the cart, order status, selected pizza, modals, edit index, and new pizza name
   const [cart, setCart] = useState([]);
   const [orderStatus, setOrderStatus] = useState('');
   const [selectedPizza, setSelectedPizza] = useState('');
@@ -9,6 +11,7 @@ const PizzaOrder = () => {
   const [editIndex, setEditIndex] = useState(null);
   const [newPizzaName, setNewPizzaName] = useState('');
 
+  // Function to simulate taking an order and adding it to the cart
   const takeOrder = (pizza) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -25,11 +28,13 @@ const PizzaOrder = () => {
     });
   };
 
+  // Function to check the availability of a pizza
   const checkAvailability = (pizza) => {
     const availablePizzas = ['Margherita', 'Pepperoni', 'Vegetarian'];
     return availablePizzas.includes(pizza);
   };
 
+  // Function to process the order and simulate an API call
   const processOrder = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -42,39 +47,49 @@ const PizzaOrder = () => {
     });
   };
 
+  // Function to handle placing an order
   const handleOrder = async () => {
     try {
+      // Update order status to indicate the ongoing process
       setOrderStatus('Placing order...');
 
+      // Take the order and add it to the cart
       const order = await takeOrder(selectedPizza);
       console.log(`Successfully added ${order} to the cart.`);
 
+      // Process the order
       const processedOrder = await processOrder();
       console.log('Your order is ready!');
       console.log('Ordered Pizzas:', processedOrder);
 
+      // Update order status after successful placement
       setOrderStatus('Order placed successfully!');
     } catch (error) {
       console.error(error.message);
+      // Update order status if there's an error
       setOrderStatus('Failed to place order.');
     }
   };
 
+  // Function to handle the change in selected pizza
   const handlePizzaChange = (e) => {
     setSelectedPizza(e.target.value);
   };
 
+  // Function to handle editing an order
   const handleEditOrder = (index) => {
     setEditIndex(index);
     setNewPizzaName(cart[index]);
     setEditModalOpen(true);
   };
 
+  // Function to handle deleting an order
   const handleDeleteOrder = (index) => {
     setEditIndex(index);
     setDeleteModalOpen(true);
   };
 
+  // Function to confirm and save the edited order
   const handleConfirmEdit = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -94,6 +109,7 @@ const PizzaOrder = () => {
     });
   };
 
+  // Function to confirm and delete the order
   const handleConfirmDelete = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -113,6 +129,7 @@ const PizzaOrder = () => {
     });
   };
 
+  // JSX markup for the Pizza Delivery App component with Tailwindcss
   return (
     <div className="container min-h-screen p-4 bg-gray-50 rounded-lg mx-auto">
       <h1 className="text-3xl text-center font-bold mb-12">Pizza Delivery App</h1>
