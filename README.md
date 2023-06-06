@@ -1,6 +1,8 @@
 # This repository is part of a blog post 
 
-## If you want to read the blog pot you can find it here []()
+**If you want to read the blog post you can find it here: [The power of promises with next.js: Building a pizza delivery app](https://dev.to/bobbyhalljr/the-power-of-promises-with-nextjs-building-a-pizza-delivery-app-427d)** 
+
+Run the app locally and check it out! 
 
 ## Getting Started
 
