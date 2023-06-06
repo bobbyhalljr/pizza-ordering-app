@@ -1,5 +1,6 @@
 ### This repository is part of a blog post, if you want to read the blog post you can find it here: 
 ### **[The power of promises with next.js: Building a pizza delivery app](https://dev.to/bobbyhalljr/the-power-of-promises-with-nextjs-building-a-pizza-delivery-app-427d)** 
+
 # Pizza Delivery App
 
 This is a sample Pizza Delivery App built with Next.js and Tailwind CSS. It demonstrates the use of promises and asynchronous operations to handle pizza orders, cart management, and order processing.
